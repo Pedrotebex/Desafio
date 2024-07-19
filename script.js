@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     let timer;
-    const focusTime = 3000; // 50 minutos
-    const shortBreakTime = 600; // 10 minutos
-    const longBreakTime = 900; // 15 minutos
+    const focusTime = 3000; // 50 minutos em segundos
+    const shortBreakTime = 600; // 10 minutos em segundos
+    const longBreakTime = 900; // 15 minutos em segundos
     let timeLeft = focusTime;
     let isPaused = true;
+    let currentContext = 'focus'; // Contexto padrão
 
     const timerElement = document.getElementById('timer');
     const startPauseButton = document.getElementById('start-pause');
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const focusButton = document.querySelector('button[data-contexto="focus"]');
     const shortBreakButton = document.querySelector('button[data-contexto="short-break"]');
     const longBreakButton = document.querySelector('button[data-contexto="long-break"]');
-    const cardContainer = document.getElementById('card-container');
+    const cardContainer = document.querySelector('.card-container');
 
     function updateTimerDisplay() {
         const minutes = Math.floor(timeLeft / 60);
@@ -40,7 +41,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function resetTimer() {
         clearInterval(timer);
-        timeLeft = focusTime;
+        switch (currentContext) {
+            case 'focus':
+                timeLeft = focusTime;
+                break;
+            case 'short-break':
+                timeLeft = shortBreakTime;
+                break;
+            case 'long-break':
+                timeLeft = longBreakTime;
+                break;
+            default:
+                timeLeft = focusTime;
+                break;
+        }
         updateTimerDisplay();
         startPauseIcon.src = 'imagens/play_arrow.png';
         startPauseText.textContent = 'Começar';
@@ -54,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         startPauseIcon.src = 'imagens/play_arrow.png';
         startPauseText.textContent = 'Começar';
         isPaused = true;
+        currentContext = contextClass; // Atualiza o contexto atual
         cardContainer.className = 'card-container ' + contextClass;
     }
 
