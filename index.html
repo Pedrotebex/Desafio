@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Timer</title>
+</head>
+<body>
+    <section class="banner-container">
+        <h1 class="title">
+            Otimize sua produtividade,<br>
+            <strong class="title-strong">mergulhe no que importa.</strong>
+        </h1>
+        <figure class="image-figure">
+            <img class="image" src="imagens/foco.png" alt="Imagem de foco">
+        </figure>
+    </section>
+    <section class="card-container">
+        <div class="card">
+            <ul class="card-list">
+                <li class="card-list-item">
+                    <button data-contexto="foco" class="card-button card-button--focus active">Foco</button>
+                </li>
+            </ul>
+            <div id="timer" class="card-timer">25:00</div>
+            <div class="primary-button-wrapper">
+                <button id="start-pause" class="primary-button">
+                    <img class="primary-button-icon" src="imagens/play_arrow.png" alt="Ícone de play">
+                    <span>Começar</span>
+                </button>
+            </div>
+            <div class="primary-button-wrapper">
+                <button id="reset" class="primary-button">
+                    <span>Resetar</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
