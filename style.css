@@ -1,5 +1,11 @@
-:root{
+:root {
     --fonte-principal: "Montserrat", sans-serif;
+    --cor-primaria: #007bff;
+    --cor-secundaria: #0d1925;
+    --cor-fundo: #f5f5f5;
+    --cor-fundo-card: #fff;
+    --cor-texto: #333;
+    --cor-branca: #fff;
 }
 
 body {
@@ -11,19 +17,19 @@ body {
 
 .banner-container {
     text-align: center;
-    background-color: #f5f5f5;
+    background-color: var(--cor-fundo);
     padding: 20px 20px;
 }
 
 .title {
     font-size: 24px;
-    color: #333;
+    color: var(--cor-texto);
     margin: 0 0 20px;
 }
 
 .title-strong {
     font-weight: bold;
-    color: #007bff;
+    color: var(--cor-primaria);
 }
 
 .image-figure {
@@ -43,7 +49,7 @@ body {
 }
 
 .card {
-    background-color: #fff;
+    background-color: var(--cor-fundo-card);
     border-radius: 4px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -54,10 +60,9 @@ body {
 .card-list {
     list-style: none;
     padding: 10px;
-    margin: 0 0 20px;
+    margin: 0 0 0px;
     display: flex;
-    justify-content: center;
-
+    justify-content: space-between;
 }
 
 .card-list-item {
@@ -65,20 +70,19 @@ body {
 }
 
 .card-button {
-    background-color: #007bff;
+    background-color: var(--cor-primaria);
     border: none;
     border-radius: 4px;
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s;
-    color: #fff;
+    color: var(--cor-branca);
     font-family: var(--fonte-principal);
 }
 
-
 .card-button:hover {
-    background-color: #0d1925;
-    color: #fff;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branca);
 }
 
 .card-timer {
@@ -94,13 +98,13 @@ body {
 }
 
 .primary-button {
-    background-color: #007bff;
+    background-color: var(--cor-primaria);
     border: none;
     font-family: var(--fonte-principal);
     border-radius: 4px;
     padding: 10px 20px;
     width: 150px;
-    color: #fff;
+    color: var(--cor-branca);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -109,7 +113,7 @@ body {
 }
 
 .primary-button:hover {
-    background-color: #0d1925;
+    background-color: var(--cor-secundaria);
 }
 
 .primary-button-icon {

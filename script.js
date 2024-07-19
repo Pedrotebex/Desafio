@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     let timer;
-    const defaultTime = 1500; // 25 minutes in seconds
-    let timeLeft = defaultTime;
+    const focusTime = 1500; // 25 minutes in seconds
+    const shortBreakTime = 300; // 5 minutes in seconds
+    const longBreakTime = 900; // 15 minutes in seconds
+    let timeLeft = focusTime;
     let isPaused = true;
 
     const timerElement = document.getElementById('timer');
@@ -9,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const resetButton = document.getElementById('reset');
     const startPauseIcon = startPauseButton.querySelector('img');
     const startPauseText = startPauseButton.querySelector('span');
+    const focusButton = document.querySelector('button[data-contexto="focus"]');
+    const shortBreakButton = document.querySelector('button[data-contexto="short-break"]');
+    const longBreakButton = document.querySelector('button[data-contexto="long-break"]');
 
     function updateTimerDisplay() {
         const minutes = Math.floor(timeLeft / 60);
@@ -34,7 +39,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function resetTimer() {
         clearInterval(timer);
-        timeLeft = defaultTime;
+        timeLeft = focusTime;
+        updateTimerDisplay();
+        startPauseIcon.src = 'imagens/play_arrow.png';
+        startPauseText.textContent = 'Começar';
+        isPaused = true;
+    }
+
+    function setTimer(newTime) {
+        clearInterval(timer);
+        timeLeft = newTime;
         updateTimerDisplay();
         startPauseIcon.src = 'imagens/play_arrow.png';
         startPauseText.textContent = 'Começar';
@@ -55,6 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     resetButton.addEventListener('click', resetTimer);
+    focusButton.addEventListener('click', () => setTimer(focusTime));
+    shortBreakButton.addEventListener('click', () => setTimer(shortBreakTime));
+    longBreakButton.addEventListener('click', () => setTimer(longBreakTime));
 
     updateTimerDisplay();
 });

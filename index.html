@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Timer</title>
 </head>
 <body>
@@ -23,9 +23,13 @@
         <div class="card">
             <ul class="card-list">
                 <li class="card-list-item">
-                    <button data-contexto="foco" class="card-button card-button--focus active">Foco</button>
-                    <button data-contexto="descanso" class="card-button card-button--Descanso active">Descansar</button>
-                    <button data-contexto="longo" class="card-button card-button--Descanso active">Descanso Longo</button>
+                    <button data-contexto="focus" class="card-button card-button--focus active">Foco</button>
+                </li>
+                <li class="card-list-item">
+                    <button data-contexto="short-break" class="card-button card-button--short-break">Descanso Curto</button>
+                </li>
+                <li class="card-list-item">
+                    <button data-contexto="long-break" class="card-button card-button--long-break">Descanso Longo</button>
                 </li>
             </ul>
             <div id="timer" class="card-timer">25:00</div>
