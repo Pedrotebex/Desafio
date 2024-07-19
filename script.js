@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     let timer;
-    const focusTime = 1500; // 25 minutes in seconds
-    const shortBreakTime = 300; // 5 minutes in seconds
-    const longBreakTime = 900; // 15 minutes in seconds
+    const focusTime = 3000; // 50 minutos
+    const shortBreakTime = 600; // 10 minutos
+    const longBreakTime = 900; // 15 minutos
     let timeLeft = focusTime;
     let isPaused = true;
 
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const focusButton = document.querySelector('button[data-contexto="focus"]');
     const shortBreakButton = document.querySelector('button[data-contexto="short-break"]');
     const longBreakButton = document.querySelector('button[data-contexto="long-break"]');
+    const cardContainer = document.getElementById('card-container');
 
     function updateTimerDisplay() {
         const minutes = Math.floor(timeLeft / 60);
@@ -46,13 +47,14 @@ document.addEventListener('DOMContentLoaded', function() {
         isPaused = true;
     }
 
-    function setTimer(newTime) {
+    function setTimer(newTime, contextClass) {
         clearInterval(timer);
         timeLeft = newTime;
         updateTimerDisplay();
         startPauseIcon.src = 'imagens/play_arrow.png';
         startPauseText.textContent = 'Começar';
         isPaused = true;
+        cardContainer.className = 'card-container ' + contextClass;
     }
 
     startPauseButton.addEventListener('click', () => {
@@ -69,9 +71,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     resetButton.addEventListener('click', resetTimer);
-    focusButton.addEventListener('click', () => setTimer(focusTime));
-    shortBreakButton.addEventListener('click', () => setTimer(shortBreakTime));
-    longBreakButton.addEventListener('click', () => setTimer(longBreakTime));
+    focusButton.addEventListener('click', () => setTimer(focusTime, 'focus'));
+    shortBreakButton.addEventListener('click', () => setTimer(shortBreakTime, 'short-break'));
+    longBreakButton.addEventListener('click', () => setTimer(longBreakTime, 'long-break'));
 
     updateTimerDisplay();
 });
