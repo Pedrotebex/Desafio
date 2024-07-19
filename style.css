@@ -28,7 +28,7 @@ body {
 
 .image {
     max-width: 100%;
-    height: auto;
+    height: 100px;
 }
 
 .card-container {
@@ -51,7 +51,8 @@ body {
     padding: 0;
     margin: 0 0 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+
 }
 
 .card-list-item {
@@ -62,7 +63,8 @@ body {
     background-color: #e0e0e0;
     border: none;
     border-radius: 4px;
-    padding: 10px 20px;
+    padding: 20px 20px;
+
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -90,10 +92,12 @@ body {
     border: none;
     border-radius: 4px;
     padding: 10px 20px;
+    width: 100px;
     color: #fff;
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: center;
     transition: background-color 0.3s;
 }
 
